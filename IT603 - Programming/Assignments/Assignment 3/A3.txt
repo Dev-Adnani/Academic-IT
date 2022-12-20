@@ -1,0 +1,343 @@
+// Assignment3.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include<bitset>
+#include <iomanip>
+#include<vector>
+#include <string>
+
+using namespace std;
+typedef unsigned int uint;
+typedef char byte;
+typedef int digit;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+
+int main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+}
+
+void Q1() {
+
+	uint a1 = 0b10111001;
+	uint a2 = 0b10010110;
+	cout << "Ans of a : " << (a1 & a2) << endl;
+
+	uint b1 = 0b11011110;
+	uint b2 = 0b11000101;
+	cout << "Ans of b : " << (b1 & b2) << endl;
+
+	uint c1 = 0b01111101;
+	uint c2 = 0b10111110;
+	cout << "Ans of c : " << (c1 | c2) << endl;
+
+	uint d1 = 0b11000110;
+	uint d2 = 0b11011100;
+	cout << "Ans of d : " << (d1 | d2) << endl;
+
+	uint e1 = 0b10111001;
+	uint e2 = 0b11110110;
+	cout << "Ans of e : " << (e1 ^ e2) << endl;
+
+	uint f1 = 0b11000010;
+	uint f2 = 0b00000101;
+	cout << "Ans of f : " << (f1 ^ f2) << endl;
+
+	bitset<16> g;
+	g = 0b1011100110010110;
+	cout << "Ans of g : " << (~g) << endl;
+
+	uint h = 0b11011110;
+	uint h2 = 0b11000101;
+	cout << "Ans of h : " << (~h & h2) << endl;
+
+	const int i1 = sizeof(byte);
+	cout << "Ans of i : " << bitset<8 * i1>(1 << 7) << endl;
+
+	byte j1 = (byte)pow(2, 7) >> 4;
+	cout << "Ans of j : " << bitset<8 * i1>(j1) << endl;
+}
+
+void Q2() {
+	int var = 0b1010'1110'1010'1011'0101'1101'0011'1011;
+	byte bin = 0;
+
+	int a1 = pow(2, 16 - 1);
+	int result1 = var | a1;
+	cout << "Ans of a -> " << bitset<8 * sizeof(result1)>(result1) << endl;
+
+	int a2 = pow(2, 28 - 1);
+	int result2 = var & ~a2;
+	cout << "\nAns of b -> " << bitset<32 * sizeof(byte)>(result2) << endl;
+
+	unsigned int ops1 = 0b110101110101010110101110100111011;
+	int arreven[33]; int arrodd[33]; int even = 0; int odd = 0; int n = 0; int k = 0;
+	for (int i = 1; i <= 32; i++)
+	{
+		int bcv = 1;
+		if (i % 2 == 0) {
+			bcv = bcv << (i - 1);
+			int temp = ops1 & bcv;
+			if (temp == 0)
+				arreven[i] = 0;
+			else
+				arreven[i] = 1;
+		}
+		else {
+			bcv = bcv << (i - 1);
+			int temp = ops1 & bcv;
+			if (temp == 0)
+				arrodd[i] = 0;
+			else
+				arrodd[i] = 1;
+		}
+	}
+	for (int i = 0; i < 33; i++) {
+
+		if (arrodd[i] == 1 || arrodd[i] == 0) {
+			odd = odd + pow(2, n) * arrodd[i];
+			n = n + 1;
+		}
+		if (arreven[i] == 1 || arreven[i] == 0) {
+			even = even + pow(2, k) * arreven[i];
+			k = k + 1;
+		}
+	}
+
+	int a[32], i;
+	for (i = 0; even > 0; i++)
+	{
+		a[i] = even % 2;
+		even = even / 2;
+	}
+	cout << "\nAns of c ";
+	cout << "\nEVEN :  ";
+	for (i = i - 1; i >= 0; i--)
+	{
+		cout << a[i];
+	}
+
+
+	cout << "\nODD : ";
+	for (i = 0; odd > 0; i++)
+	{
+		a[i] = odd % 2;
+		odd = odd / 2;
+	}
+	for (i = i - 1; i >= 0; i--)
+	{
+		cout << a[i];
+	}
+
+	
+
+	
+
+	digit bcv = 0;
+	bcv = 1 << 11 | 1 << 10 | 1 << 9 | 1 << 8;
+	var = var ^ bcv;
+	bitset<32>x1 = var;
+	cout << " " << endl;
+	cout << "\nAns of d ->  " << x1 << endl;
+}
+
+void Q3() {
+	int	n;
+	uint count = 0;
+
+	cout << "Enter a integer number : ";
+	cin >> n;
+
+	while (n) {
+		count += n & 1;
+		n >>= 1;
+	}
+
+	cout << "Total number of bits set : " << count;
+}
+
+void Q4() {
+
+	byte choice = 0, bin = 0, check = 0;
+	int n1 = 0, n2 = 0;
+	while (n1 != 3) {
+		cout << "\nSettings of OS" << endl;
+		cout << "Press 1 set value of these setting(s)." << endl;
+		cout << "Press 2 print status of settings." << endl;//2
+		cout << "Press 3 to exit settings" << endl;
+		cout << "Enter your Choice : ";
+		cin >> n1;
+
+		if (n1 == 1) {
+			bin = 0b0001;
+			choice = choice | bin;
+			while (n2 != 6) {
+				cout << "\nSettings are !!" << endl;
+				cout << "Press 1 to ON Tablet Mode" << endl;
+				cout << "Press 2 to ON Wifi" << endl;
+				cout << "Press 3 to ON Mute" << endl;
+				cout << "Press 4 to ON Airplane Mode" << endl;
+				cout << "Press 5 to ON Auto Hide Taskbar" << endl;
+				cout << "Press 6 to Go Back" << endl;
+				cout << "Enter your Choice : ";
+				cin >> n2;
+
+				if (n2 != 6) {
+					bin = 1 << (n2 + 1);
+					choice = choice ^ bin;
+				}
+			}
+		}
+		else if (n1 == 2) {
+
+			bin = 1 << 2;
+			check = choice & bin;
+
+			cout << "\nSETTINGS OF OS " << endl;
+			if (check != 0) {
+				cout << "TABLET MODE --> ON" << endl;
+			}
+			else {
+				cout << "TABLET MODE --> OFF" << endl;
+			}
+
+			bin = 1 << 3;
+			check = choice & bin;
+			if (check != 0) {
+				cout << "WIFI --> ON" << endl;
+			}
+			else {
+				cout << "WIFI --> OFF" << endl;
+			}
+
+			bin = 1 << 4;
+			check = choice & bin;
+			if (check != 0) {
+				cout << "MUTE --> ON" << endl;
+			}
+			else {
+				cout << "MUTE --> OFF" << endl;
+			}
+
+			bin = 1 << 5;
+			check = choice & bin;
+			if (check != 0) {
+				cout << "AIRPLANE MODE --> ON" << endl;
+			}
+			else {
+				cout << "AIRPLANE MODE --> OFF" << endl;
+			}
+
+			bin = 1 << 6;
+			check = choice & bin;
+			if (check != 0) {
+				cout << "AUTO HIDE TASKBAR MODE --> ON" << endl;
+			}
+			else {
+				cout << "AUTO HIDE TASKBAR MODE --> OFF" << endl;
+			}
+		}
+	}
+}
+
+void Q5() {
+	byte bin = 0, choice = 0, colour = 0;
+	int n1 = 0, n2 = 0;
+
+	while (n1 != 6) {
+		cout << "Settings" << endl;
+		cout << "Press 1 to select seat covers" << endl;
+		cout << "Press 2 to select Alloys." << endl;
+		cout << "Press 3 to Select Colour" << endl;
+		cout << "Press 4 to Select Steering Cover" << endl;
+		cout << "Press 5 to Select Body Cover" << endl;
+		cout << "Press 6 to display and Exit" << endl;
+		cout << "Enter your choice : ";
+		cin >> n1;
+
+		bin = 1 << (n1 - 1);
+		choice = choice ^ bin;
+
+		if (n1 == 1) {
+			n2 = 0;
+			while (n2 != 4) {
+				cout << "Choose a seat Cover colour" << endl;
+				cout << "Press 1 to select Beige." << endl;
+				cout << "Press 2 to select Dark." << endl;
+				cout << "Press 3 to Select Dual Pattern." << endl;
+				cout << "Press 4 to display and go back" << endl;
+				cout << "Enter your choice : ";
+				cin >> n2;
+
+
+				if (n2 == 1) {
+					colour = 0;
+					cout << bitset<8 * sizeof(colour)>(colour) << endl;
+
+				}
+				else if (n2 == 2) {
+					colour = 0b01;
+					cout << bitset<8 * sizeof(colour)>(colour) << endl;
+
+				}
+				else if (n2 == 3) {
+					colour = 1 << 1;
+					cout << bitset<8 * sizeof(colour)>(colour) << endl;
+
+				}
+
+			}
+		}
+		else if (n1 == 3) {
+			n2 = 0;
+
+			while (n2 != 4) {
+				cout << "Choose a Colour" << endl;
+				cout << "Press 1 to select Coffee Brown." << endl;
+				cout << "Press 2 to select Pearl White." << endl;
+				cout << "Press 3 to Select Marine Blue." << endl;
+				cout << "Press 3 to Select Ash Grey." << endl;
+				cout << "Press 4 to display and go back" << endl;
+				cout << "Enter your choice : ";
+				cin >> n2;
+
+
+				if (n2 == 1) {
+					choice = 0 << 5 | 0 << 6;
+					cout << bitset<8 * sizeof(choice)>(choice) << endl;
+
+				}
+				else if (n2 == 2) {
+					choice = 0 << 5 | 1 << 6;
+					cout << bitset<8 * sizeof(choice)>(choice) << endl;
+
+				}
+				else if (n2 == 3) {
+					choice = 1 << 5 | 0 << 6;
+					cout << bitset<8 * sizeof(choice)>(choice) << endl;
+
+				}
+				else if (n2 == 4) {
+					choice = 1 << 5 | 1 << 6;
+					cout << bitset<8 * sizeof(choice)>(choice) << endl;
+
+				}
+
+			}
+
+		}
+	}
+	cout << "Choice : " << bitset<8 * sizeof(choice)>(choice) << endl;
+	cout << "Colour : " << bitset<8 * sizeof(colour)>(colour) << endl;
+
+}

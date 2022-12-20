@@ -1,0 +1,334 @@
+// Assignment6.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <map>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+void Q6();
+void Q7();
+void Q8();
+void Q9();
+void Q10();
+void Q11();
+
+int main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+	//Q6();
+	//Q7();
+	//Q8();
+	//Q9();
+	//Q10();
+	//Q11();
+}
+
+void Q1() {
+	char str[20], * ptr;
+	int count = 0;
+
+	cout << "Enter a string : ";
+	cin.getline(str, 20);
+
+	ptr = str;
+	while (*ptr != '\0') {
+		if (tolower(*ptr) == 'a' || tolower(*ptr) == 'e' || tolower(*ptr) == 'i' ||
+			tolower(*ptr) == 'o' || tolower(*ptr) == 'u') {
+			count++;
+		}
+		ptr++;
+	}
+	cout << "Number of vowels in a string : " << count;
+}
+
+void Q2()
+{
+	char str[20], * ptr;
+	int count = 0;
+
+	cout << "Enter a string : ";
+	cin.getline(str, 20);
+
+	ptr = str;
+	while (*ptr != '\0')
+	{
+		if (*ptr >= 65 && *ptr <= 90)
+		{
+			count++;
+		}
+		ptr++;
+	}
+	cout << "Number of capital letters in a string : " << count;
+}
+
+void Q3() {
+	char str[20], * ptr;
+	int count = 0;
+
+	cout << "Enter a string : ";
+	cin.getline(str, 20);
+
+	ptr = str;
+	while (*ptr != '\0')
+	{
+		char c = toupper(*ptr);
+		cout << c;
+		ptr++;
+	}
+}
+
+void Q4() {
+	char str[50], * ptr;
+	int i = 0, word = 1;
+	cout << "Enter a string : ";
+	cin.get(str, 50);
+
+	ptr = str;
+
+	while (ptr[i]) {
+		char c = ptr[i];
+		if (isspace(c)) {
+			word++;
+		}
+		i++;
+	}
+
+	cout << "Total words in a string : " << word;
+}
+
+void Q5() {
+	char str[50], * ptr;
+
+	cout << "Enter a string : ";
+	cin.get(str, 50);
+
+	ptr = str;
+
+	for (int i = strlen(str); i >= 0; i--)
+	{
+		cout << str[i];
+	}
+}
+
+void Q6()
+{
+	char str[20], * ptr;
+	int len, start, end, i, j;
+
+	cout << "Enter a string : ";
+	cin.getline(str, 20);
+
+	ptr = str;
+	len = strlen(ptr);
+	end = len - 1;
+
+	for (i = len - 1; i >= 0; i--)
+	{
+		if (ptr[i] == 32 || i == 0)
+		{
+			if (i == 0)
+			{
+				start = 0;
+			}
+			else
+			{
+				start = i + 1;
+			}
+			for (j = start; j <= end; j++)
+			{
+				cout << ptr[j];
+			}
+			end = i - 1;
+			cout << " ";
+		}
+	}
+}
+
+void Q7()
+{
+	char str[50], * sptr;
+	int one = 0, two = 0, three = 0, count = 0;
+
+	cout << "Enter String : ";
+	cin.getline(str, 50);
+
+	sptr = str;
+
+	while (*sptr != '\0') {
+		if (*sptr != ' ')
+			count++;
+		else {
+			if (count == 3)
+				three++;
+			else if (count == 2)
+				two++;
+			else if (count == 1)
+				one++;
+			count = 0;
+		}
+		sptr++;
+	}
+
+	if (count == 3)
+		three++;
+	else if (count == 2)
+		two++;
+	else if (count == 1)
+		one++;
+
+	cout << "Number of words with one letter is " << one << endl;
+	cout << "Number of words with two letter is " << two << endl;
+	cout << "Number of words with three letter is " << three << endl;
+}
+
+void Q8() {
+	char str[50], * ptr;
+	int flag = 0;
+	cout << "Enter a string : ";
+	cin.get(str, 50);
+
+	ptr = str;
+
+	for (int i = 0; i < strlen(ptr); i++)
+	{
+		if (ptr[i] != ptr[strlen(ptr) - i - 1]) {
+			flag = 1;
+			break;
+		}
+	}
+
+	if (flag == 1) {
+		cout << str << " is not a palindrome" << endl;
+	}
+	else {
+		cout << str << " is a palindrome" << endl;
+	}
+
+}
+
+void Q9()
+{
+	char str1[30], str2[30], * ptr1, * ptr2;
+
+	cout << "Enter String 1 : ";
+	cin.getline(str1, 30);
+	cout << "Enter String 2 : ";
+	cin.getline(str2, 30);
+
+	ptr1 = str1;
+	ptr2 = str2;
+
+	int m = strlen(ptr1);
+	int n = strlen(ptr2);
+	int j = 0;
+
+	for (int i = 0; i < m && j < n; i++) {
+		if (ptr1[i] == ptr2[j]) {
+			j++;
+		}
+	}
+
+	if (j == n) {
+		cout << "Substring";
+	}
+	else {
+		cout << "Not substring";
+	}
+}
+
+void Q10() {
+	char str[50], arr[50][50];
+	int i;
+
+	cout << "Enter a string : ";
+	cin.get(str, 50);
+
+	cout << "Enter a number to splits : ";
+	cin >> i;
+
+	char* ptr = str;
+	int len = ceil(strlen(str) / i);
+
+	for (int j = 0; j < len; j++) {
+		for (int h = 0; h < i; h++) {
+
+			if (*ptr == ' ')
+				ptr++;
+
+			if (*ptr != '\0') {
+				arr[j][h] = *ptr;
+				ptr++;
+			}
+			else {
+				arr[j][h] = ' ';
+			}
+		}
+	}
+
+	for (int j = 0; j < len; j++)
+	{
+		for (int h = 0; h < i; h++)
+		{
+			cout << arr[j][h] << " ";
+		}
+		cout << endl;
+	}
+}
+
+void Q11() {
+	char str1[30], str2[30], * ptr1, * ptr2;
+	int j = 0, count1 = 0, count2 = 0;
+
+	cout << "Enter String 1 : ";
+	cin.getline(str1, 30);
+	cout << "Enter String 2 : ";
+	cin.getline(str2, 30);
+
+	int len1 = strlen(str1);
+	for (int i = 0; i < len1; i++) {
+		if (str1[i] == ' ') {
+			for (int h = i; h < len1; h++)
+				str1[h] = str1[h + 1];
+			len1--;
+		}
+	}
+
+	int len2 = strlen(str2);
+	for (int i = 0; i < len2; i++) {
+		if (str2[i] == ' ') {
+			for (int h = i; h < len2; h++)
+				str2[h] = str2[h + 1];
+			len2--;
+		}
+	}
+
+	ptr1 = str1;
+	ptr2 = str2;
+
+	int m = strlen(ptr1);
+	int n = strlen(ptr2);
+
+	for (int i = 0; i < m && j < n; i++) {
+		if (ptr1[i] == ptr2[j]) {
+			j++;
+		}
+	}
+
+	if (j == n) {
+		cout << "Substring";
+	}
+	else {
+		cout << "Not substring";
+	}
+}

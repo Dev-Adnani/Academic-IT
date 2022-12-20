@@ -1,0 +1,349 @@
+// Assignment8.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+typedef struct Player PLAYER;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+void Q6();
+
+int main()
+{
+	//Q1();
+	//Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+	//Q6();
+
+}
+
+struct Player
+{
+	string firstName;
+	string lastName;
+	int age;
+	string gameName;
+};
+
+struct Player p, p4, * ptr, arr[4], temp;
+
+void Q1A() {
+	cout << "Q1 A" << endl;
+	cout << "Enter player first name : ";
+	cin >> p.firstName;
+
+	cout << "Enter player last name : ";
+	cin >> p.lastName;
+
+	cout << "Enter player age : ";
+	cin >> p.age;
+
+	cout << "Enter name of the game : ";
+	cin >> p.gameName;
+
+	cout << endl << "Player information : " << endl << endl;
+	cout << "Player first name is " << p.firstName << endl;
+	cout << "Player last name is " << p.lastName << endl;
+	cout << "Player age is " << p.age << endl;
+	cout << "Name of the game is " << p.gameName << endl;
+}
+
+void Q1B() {
+	cout << endl << "Q1 B" << endl;
+
+	ptr = &p;
+
+	cout << "Enter player first name : ";
+	cin >> (*ptr).firstName;
+
+	cout << "Enter player last name : ";
+	cin >> (*ptr).lastName;
+
+	cout << "Enter player age : ";
+	cin >> (*ptr).age;
+
+	cout << "Enter name of the game : ";
+	cin >> (*ptr).gameName;
+
+	cout << endl << "Player information : " << endl << endl;
+	cout << "Player first name is " << ptr->firstName << endl;
+	cout << "Player last name is " << ptr->lastName << endl;
+	cout << "Player age is " << ptr->age << endl;
+	cout << "Name of the game is " << ptr->gameName << endl;
+}
+
+void Q1C() {
+	cout << endl << "Q1 C" << endl;
+
+	int j = 1;
+
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Enter player " << j << " first name : ";
+		cin >> arr[i].firstName;
+
+		cout << "Enter player " << j << " last name : ";
+		cin >> arr[i].lastName;
+
+		cout << "Enter player " << j << " age : ";
+		cin >> arr[i].age;
+
+		cout << "Enter name of the game : ";
+		cin >> arr[i].gameName;
+
+		cout << endl;
+	}
+
+	j = 1;
+
+	cout << "Players information are : " << endl << endl;
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Player " << j << " first name is " << arr[i].firstName << endl;
+		cout << "Player " << j << " last name is " << arr[i].lastName << endl;
+		cout << "Player " << j << " age is " << arr[i].age << endl;
+		cout << "Name of the game is " << arr[i].gameName << endl << endl;
+	}
+
+}
+
+void Q1D() {
+	cout << endl << "Q1 D" << endl;
+
+	ptr = arr;
+
+	int j = 1;
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Enter player " << j << " first name : ";
+		cin >> ptr[i].firstName;
+
+		cout << "Enter player " << j << " last name : ";
+		cin >> ptr[i].lastName;
+
+		cout << "Enter player " << j << " age : ";
+		cin >> ptr[i].age;
+
+		cout << "Enter name of the game : ";
+		cin >> ptr[i].gameName;
+
+		cout << endl;
+	}
+
+	j = 1;
+
+	cout << "Players information are : " << endl << endl;
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Player " << j << " first name : " << ptr->firstName << endl;
+		cout << "Player " << j << " last name : " << ptr->lastName << endl;
+		cout << "Player " << j << " age : " << ptr->age << endl;
+		cout << "Name of the game : " << ptr->gameName << endl << endl;
+		ptr++;
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		ptr--;
+	}
+}
+
+void Q1() {
+	Q1A();
+	Q1B();
+	Q1C();
+	Q1D();
+}
+
+void sortByAge(Player* players) {
+	int age = 0, n = 4, i, j = 0;
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = i + 1; j < n; j++)
+		{
+			if (players[i].age > players[j].age)
+			{
+				temp = players[i];
+				players[i] = players[j];
+				players[j] = temp;
+			}
+		}
+	}
+
+	j = 1;
+
+	cout << "Sorted array of PLAYER structure ";
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "\nPlayer " << j << " first name : " << players->firstName << endl;
+		cout << "Player " << j << " last name : " << players->lastName << endl;
+		cout << "Player " << j << " age : " << players->age << endl;
+		cout << "Name of the game : " << players->gameName << endl;
+		players++;
+	}
+}
+
+void Q2() {
+	sortByAge(ptr);
+}
+
+void findPlayer() {
+	struct Player p[4];
+	string name;
+	int j = 1;
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Enter player " << j << " first name : ";
+		cin >> p[i].firstName;
+
+		cout << "Enter player " << j << " last name : ";
+		cin >> p[i].lastName;
+
+		cout << "Enter player " << j << " age : ";
+		cin >> p[i].age;
+
+		cout << "Enter name of the game : ";
+		cin >> p[i].gameName;
+
+		cout << endl;
+	}
+
+	cout << "Enter player first name : ";
+	cin >> name;
+
+	for (int i = 0; i < 4; i++, j++)
+	{
+		if (p[i].firstName == name)
+			cout << endl << "Player Found : " << p[i].firstName;
+	}
+}
+
+void Q3() {
+	findPlayer();
+}
+
+
+
+void findRecord(PLAYER* players, PLAYER player) {
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (players[i].firstName == player.firstName && players[i].lastName == player.lastName
+			&& players[i].age == player.age && players[i].gameName == player.gameName)
+			cout << endl << "Player Found : " << player.firstName;
+	}
+}
+
+void Q4() {
+	struct Player p, * ptr, arr[4];
+	ptr = arr;
+
+	int j = 1;
+	for (int i = 0; i < 4; i++, j++)
+	{
+		cout << "Enter player " << j << " first name : ";
+		cin >> ptr[i].firstName;
+
+		cout << "Enter player " << j << " last name : ";
+		cin >> ptr[i].lastName;
+
+		cout << "Enter player " << j << " age : ";
+		cin >> ptr[i].age;
+
+		cout << "Enter name of the game : ";
+		cin >> ptr[i].gameName;
+
+		cout << endl;
+	}
+
+	cout << "Enter player first name : ";
+	cin >> p.firstName;
+
+	cout << "Enter player last name : ";
+	cin >> p.lastName;
+
+	cout << "Enter player age : ";
+	cin >> p.age;
+
+	cout << "Enter name of the game : ";
+	cin >> p.gameName;
+
+	findRecord(ptr, p);
+}
+
+void Q5() {
+	struct Fraction {
+		int a, b, c, d;
+	};
+	struct Fraction f;
+	int x1, y1, x2, y2, x3, y3, i, gcd = 0;
+	cout << "Enter numerator of 1st fraction : ";
+	cin >> f.a;
+
+	cout << "Enter denominator  of 1st fraction : ";
+	cin >> f.b;
+
+	cout << "Enter numerator of 2nd fraction : ";
+	cin >> f.c;
+
+	cout << "Enter denominator  of 2nd fraction : ";
+	cin >> f.d;
+
+	x1 = (f.a * f.d) + (f.b * f.c);
+	y1 = f.b * f.d;
+
+	for (i = 1; i <= x1 && i <= y1; ++i)
+	{
+		if (x1 % i == 0 && y1 % i == 0)
+			gcd = i;
+	}
+
+	x2 = (f.a * f.d) - (f.b * f.c);
+	y2 = f.b * f.d;
+
+	x3 = f.a * f.c;
+	y3 = f.b * f.d;
+
+	cout << "\nThe addition of fraction is " << x1 / gcd << " / " << y1 / gcd;
+	cout << "\nThe subtraction of fraction is " << x2 / gcd << " / " << y2 / gcd;
+	cout << "\nThe multilipcation of fraction is " << x3 << " / " << y3;
+}
+
+void Q6() {
+	struct Complex
+	{
+		int a;
+		int b;
+	};
+
+	struct Complex c1;
+	struct Complex c2;
+
+	cout << "For 1st complex number" << endl;
+	cout << "Enter real and imaginary number : ";
+	cin >> c1.a >> c1.b;
+
+	cout << endl << "For 2nd complex number" << endl;
+	cout << "Enter real and imaginary number : ";
+	cin >> c2.a >> c2.b;
+
+	int add1 = c1.a + c2.a;
+	int add2 = c1.b + c2.b;
+	cout << endl << "Sum of complex number : " << add1 << " + i" << add2 << endl;
+
+	int sub1 = c1.a - c2.a;
+	int sub2 = c1.b - c2.b;
+	cout << "Subtraction of complex number : " << sub1 << " - i" << sub2 << endl;
+
+	int mul1 = c1.a * c2.a - c1.b * c2.b;
+	int mul2 = c1.a * c2.b + c2.a * c1.b;
+	cout << "Multiplication of complex number : " << mul1 << " + " << mul2 << "i" << endl;
+}

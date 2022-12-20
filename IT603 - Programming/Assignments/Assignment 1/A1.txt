@@ -1,0 +1,363 @@
+// Assignment1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+void Q6();
+void Q7();
+void Q8();
+void Q9();
+void Q10();
+void Q11();
+void Q12();
+void Q13();
+void Q14();
+void Q15();
+void Q16();
+void Q17();
+
+void main()
+{
+	Q1();
+	Q2();
+	Q3();
+	Q4();
+	Q5();
+	Q6();
+	Q8();
+	Q7();
+	Q9();
+	Q10();
+	Q11();
+	Q12();
+	Q13();
+	Q14();
+	Q15();
+	Q16();
+	Q17();
+}
+
+void Q1() {
+	int i = 100;
+	i = i + i;
+	std::cout << "V1:" << i + i << i << std::endl;
+}
+
+void Q2() {
+	int i = 6;
+	double j;
+	j = i / 4;
+	std::cout << "Val = " << j << std::endl;
+}
+
+void Q3() {
+	int a = 20, b = 50;
+	double ans1,ans2;
+	ans1 = a / b;
+	ans2 = b / a;
+
+	std::cout << "Division by a / b : " << ans1 << std::endl;
+	std::cout << "Division by b / a : " << ans2 << std::endl;
+
+}
+
+void Q4() {
+	double i = 12, j = 5, avg;
+	avg = i + j / 2;
+	printf("Avg = %.2f\n", avg);
+}
+
+void Q5() {
+	cout << "Aristotle said, \"Well begun is half done\".";
+}
+
+void Q6() {
+	std::cout << "This is the share for lecture slides: \\\\10.100.56.21\\Lecture\\Lavneet Singh\\IT603.";
+}
+
+void Q7() {
+	//Student 1 Details
+	string s1;
+	double s1marks, s1total;
+
+	cout << "Enter Student 1 Name : ";
+	cin >> s1;
+
+	std::cout << "Enter Total Marks : ";
+	std::cin >> s1marks;
+
+	s1total = s1marks * 100 / 500;
+
+	//Student 2 Details
+	string s2;
+	double s2marks, s2total;
+
+	std::cout << "Enter Student 2 Name : ";
+	std::cin >> s2;
+
+	std::cout << "Enter Total Marks : ";
+	std::cin >> s2marks;
+
+	s2total = s2marks * 100 / 500;
+
+	//Student 3 Details
+	string s3;
+	double s3marks, s3total;
+
+	std::cout << "Enter Student 3 Name : ";
+	std::cin >> s3;
+
+	std::cout << "Enter Total Marks : ";
+	std::cin >> s3marks;
+
+	s3total = s3marks * 100 / 500;
+
+	//Display All Student Details
+	std::cout << "Student 1 Name : " << s1 << std::endl;
+	std::cout << "Student 1 Marks : " << s1total << "%" << std::endl;
+
+	std::cout << "Student 2 Name : " << s2 << std::endl;
+	std::cout << "Student 2 Marks : " << s2total << "%" << std::endl;
+
+	std::cout << "Student 3 Name : " << s3 << std::endl;
+	std::cout << "Student 3 Marks : " << s3total << "%" << std::endl;
+	
+}
+
+void Q8() {
+	string str;
+	char c;
+	int index = 0, word = 1, space = 0, check = 0, vowel = 0, i = 0;
+	const char* typeOfWhitespaces = " \t\n\r\f\v";
+
+	cout << "Enter a string : ";
+	getline(cin, str);
+
+	str.erase(str.find_last_not_of(typeOfWhitespaces) + 1);
+	str.erase(0, str.find_first_not_of(typeOfWhitespaces));
+
+	while (str[i]) {
+		c = str[i];
+		if (isspace(c) && check == 0) {
+			space++;
+			word++;
+			check = 1;
+		}
+		else if (isalnum(c)) {
+			if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' ||
+				tolower(c) == 'o' || tolower(c) == 'u') {
+				vowel++;
+			}
+			check = 0;
+		}
+		i++;
+	}
+	cout << "Number of spaces : " << space << endl;
+	cout << "Number of words : " << word << endl;
+	cout << "Number of vowels : " << vowel << endl;
+
+}
+
+void Q9() {
+	int no, ans;
+
+	cout << "Enter Table No. : ";
+	cin >> no;
+
+	for (int i = 1; i <= 10; i++) {
+		ans = no * i;
+		cout << no << " x " << i << " = " << ans << std::endl;
+	}
+}
+
+void Q10() {
+	int num;
+	int count = 0;
+	cout << "Enter the digits : ";
+	cin >> num;
+
+	while (num != 0) {
+		num /= 10;
+		++count;
+	}
+
+	cout << "Total number of digits : " << count;
+}
+
+void Q11() {
+	int n = 5, k = 1;
+	cout << "Toggle : " << (n ^ (1 << (k - 1)));;
+}
+
+void Q12() {
+
+	cout << "Odd Number between 1 to 100" << std::endl;
+
+	for (int i = 1; i <= 100; i++) {
+		if (i % 2 == 1) {
+			cout << "Odd Number : " << i << std::endl;
+		}
+	}
+}
+
+void Q13() {
+	int no, rem, sum1 = 0;
+	std::cout << "Enter a no : ";
+	std::cin >> no; //123
+
+	while (no > 0) {
+		rem = no % 10;
+		sum1 = (sum1 * 10) + rem;
+		no = no / 10;
+	}
+	std::cout << "Reverse no : " << sum1;
+
+}
+
+void Q14() {
+	int ds, c, db, maths, cs, total;
+	double per;
+
+	cout << "Enter marks of Data Structures : ";
+	cin >> ds;
+
+	cout << "Enter marks of C Programming : ";
+	cin >> c;
+
+	cout << "Enter marks of DB : ";
+	cin >> db;
+
+	cout << "Enter marks of Mathematics : ";
+	cin >> maths;
+
+	cout << "Enter marks of CS : ";
+	cin >> cs;
+
+	total = ds + c + db + maths + cs;
+	per = total * 100 / 500;
+
+	if (per >= 90) {
+		cout << "Your Percentage is " << per << " and you got Grade A";
+	}
+	else if (per >= 80) {
+		cout << "Your Percentage is " << per << " and you got Grade B";
+	}
+	else if (per >= 70) {
+		cout << "Your Percentage is " << per << " and you got Grade C";
+	}
+	else if (per >= 60) {
+		cout << "Your Percentage is " << per << " and you got Grade D";
+	}
+	else if (per >= 40) {
+		cout << "Your Percentage is " << per << " and you got Grade E";
+	}
+	else {
+		cout << "Your Percentage is " << per << " and you got Grade F";
+	}
+}
+
+void Q15() {
+	char alphabet;
+
+	std::cout << "Enter any alphabet : ";
+	std::cin >> alphabet;
+
+	if (alphabet == 'a' || alphabet == 'e' || alphabet == 'i' || alphabet == 'o' || alphabet == 'u' ||
+		alphabet == 'A' || alphabet == 'E' || alphabet == 'I' || alphabet == 'O' || alphabet == 'U') {
+		std::cout << "It is a vowel";
+	}
+	else {
+		std::cout << "It is a constant";
+
+	}
+
+}
+
+void Q16() {
+	int choice;
+
+	cout << "Enter month number : ";
+	cin >> choice;
+
+	switch (choice) {
+	case 1:
+		cout << "Yeah! It's January. In this month we have 31 days";
+		break;
+
+	case 2:
+		cout << "Yeah! It's February. In this month we have 28 days";
+		break;
+
+	case 3:
+		cout << "Yeah! It's March. In this month we have 31 days";
+		break;
+
+	case 4:
+		cout << "Yeah! It's April. In this month we have 30 days";
+		break;
+
+	case 5:
+		cout << "Yeah! It's May. In this month we have 31 days";
+		break;
+
+	case 6:
+		cout << "Yeah! It's June. In this month we have 30 days";
+		break;
+
+	case 7:
+		cout << "Yeah! It's July. In this month we have 31 days";
+		break;
+
+	case 8:
+		cout << "Yeah! It's August. In this month we have 31 days";
+		break;
+
+	case 9:
+		cout << "Yeah! It's September. In this month we have 30 days";
+		break;
+
+	case 10:
+		cout << "Yeah! It's October. In this month we have 31 days";
+		break;
+
+	case 11:
+		cout << "Yeah! It's November. In this month we have 30 days";
+		break;
+
+	case 12:
+		cout << "Yeah! It's December. In this month we have 31 days";
+		break;
+
+	default:
+		cout << "Oops! Wrong input..";
+		break;
+	}
+
+}
+
+void Q17() {
+	int a, b, c;
+
+	std::cout << "Enter first side of triangle : ";
+	std::cin >> a;
+
+	std::cout << "Enter second side of triangle : ";
+	std::cin >> b;
+
+	std::cout << "Enter third side of triangle : ";
+	std::cin >> c;
+
+	if (a + b <= c || a + c <= b || b + c <= a) {
+		std::cout << "Triangle is not Valid!! ";
+	}
+	else {
+		std::cout << "Triangle is Valid!! ";
+	}
+}

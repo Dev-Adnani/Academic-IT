@@ -1,0 +1,365 @@
+// Assignment4.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+#include <array>
+#include <string>
+#include <vector>
+#include <Windows.h>
+#include <map>
+#define MAX 11
+
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+
+void main()
+{
+	//Q1();
+	Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+
+}
+
+void Q1() {
+	double arr[5];
+
+	cout << "Enter 5 elements : ";
+
+	for (int i = 0; i < size(arr); i++)
+	{
+		cin >> arr[i];
+	}
+
+	cout << "Array elements : ";
+	for (int i = 0; i < size(arr); i++)
+	{
+		cout << arr[i] << ", ";
+	}
+
+	cout << endl << "Reverse order elements : ";
+	for (int i = size(arr) - 1; i >= 0; i--)
+	{
+		cout << arr[i] << ", ";
+	}
+}
+
+void Q2() {
+	char chArrayA[100], chArrayB[100], c;
+	int index = 0, len = 0, i = 0;
+	
+	//A)
+	cout << "\n2) [A]" << endl;
+
+	char firstName[20], lastName[20];
+	cout << "Enter first name : ";
+	cin >> firstName;
+
+	cout << "Enter last name : ";
+	cin >> lastName;
+
+	strcpy_s(chArrayA, firstName);
+	strcpy_s(chArrayB, lastName);
+
+	cout << "Your first name is " << chArrayA << endl;
+	cout << "Your last name is " << chArrayB << endl;
+
+	//B)
+	cout << endl << "2) [B]" << endl;
+
+	strcat_s(chArrayA, " ");
+	strcat_s(chArrayA, chArrayB);
+
+	cout << "First name and Last name : " << chArrayA << endl;
+
+	cin.ignore();
+
+	//C)
+	cout << endl << "2) [C]" << endl;
+
+	cout << "Enter multi word string : ";
+	cin.get(chArrayA, 100);
+
+	cout << "String : " << chArrayA << endl;
+
+	cin.ignore();
+
+	//D)
+	cout << endl << "2) [D]";
+
+	cout << endl << "Enter characters : ";
+	cin.get(chArrayA, 100);
+
+	strcpy_s(chArrayB, _strrev(chArrayA));
+
+	cout << "Characters in reverse order : " << chArrayB;
+	
+	cin.ignore();
+
+	//E)
+	cin.ignore();
+
+	cout << endl << endl << "2) [E]";
+
+	cout << endl << "Enter a string : ";
+	cin.get(chArrayA, 100);
+
+	len = strlen(chArrayA);
+	int wordStart = len - 1;
+	int wordEnd = len - 1;
+
+	while (wordStart > 0)
+	{
+		if (chArrayA[wordStart] == ' ') {
+			i = wordStart + 1;
+			while (i <= wordEnd)
+			{
+				chArrayB[index] = chArrayA[i];
+				i++;
+				index++;
+			}
+			chArrayB[index++] = ' ';
+			wordEnd = wordStart - 1;
+		}
+		wordStart--;
+	}
+
+	for (i = 0; i <= wordEnd; i++)
+	{
+		chArrayB[index] = chArrayA[i];
+		index++;
+	}
+
+	chArrayB[index] = '\0';
+
+	cout << endl << "Original String : " << chArrayA << endl;
+	cout << "Reverse ordered words : " << chArrayB << endl;
+
+	cin.ignore();
+
+	//F)
+	cout << endl << "2) [F]" << endl;
+
+	cout << "Enter a string : ";
+	cin.get(chArrayA, 100);
+
+	for (int i = 0; chArrayA[i]; ++i) {
+		c = chArrayA[i];
+		if (isalpha(c)) {
+			chArrayB[i] = c;
+			chArrayA[index++] = chArrayB[i];
+		}
+	}
+	chArrayA[index] = '\0';
+
+	strcpy_s(chArrayB, sizeof(chArrayB), chArrayA);
+	cout << "Only alphabets : " << chArrayB;
+}
+
+void Q3() {
+	char seats[16][20], r;
+	auto rowName = 'A';
+	int choice, c, n = 0, value, i = 0;
+	map<char, int> m;
+	map<char, int>::iterator it;
+	auto itr = it;
+
+	for (int i = 0; i < 16; i++)
+	{
+		m.insert({ rowName, n });
+		for (int j = 1; j <= 20; j++)
+		{
+			seats[i][j] = '*';
+		}
+		rowName++; n++;
+	}
+
+	while (true) {
+	choose:
+		cout << "\n\t\t\t\t   Cinema booking tickets portal" << endl << endl;
+		cout << "\t\t\t1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20" << endl;
+		for (itr = m.begin(), i = 0; i < 16, itr != m.end(); i++, itr++)
+		{
+			cout << "\t\tRow [" << itr->first << "] ";
+			for (int j = 1; j <= 20; j++)
+			{
+				cout << seats[i][j] << "  ";
+			}
+			cout << endl;
+		}
+		cout << endl << "\t\t* => available seat";
+		cout << endl << "\t\tX => occupied / unavailable seat"<<endl;
+		cout << endl << "\t\t\t\t    Press 1 to Buy a ticket" << endl;
+		cout << "\t\t\t\t    Press 2 to Cancel ticket" << endl;
+		cout << "\t\t\t\t    Press 3 to Exit the app" << endl;
+		cout << "\t\t\t\t    Enter your choice : ";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			cout << "\n\t\t\t\t    Enter row and column : ";
+			cin >> r >> c;
+
+			if (c <= 0 || c >= 20)
+			{
+				cout << endl << "\n\t\t\t\t    Please Pick A Valid Seat" << endl;
+				Sleep(1000);
+				system("cls");
+				goto choose;
+			}
+
+			it = m.find(r);
+			if (it != m.end()) {
+				value = it->second;
+			}
+
+			if (seats[value][c] == 'X') {
+				cout << "\n\t\t\t\t    " << r << "-" << c << " Oops! Seat Not Available\n";
+				Sleep(1000);
+				system("cls");
+				goto choose;
+			}
+			else {
+				seats[value][c] = 'X';
+				cout << endl << "\n\t\t\t    Yeah! Your ticket is booked successfully" << endl;
+				Sleep(500);
+				system("cls");
+			}
+			break;
+
+		case 2:
+			cout << "\n\t\t\t\t    Enter row and column to cancel : ";
+			cin >> r >> c;
+
+			it = m.find(r);
+			if (it != m.end()) {
+				value = it->second;
+			}
+
+			seats[value][c] = '*';
+			cout << "\n\t\t\t\tYour ticket is cancelled successfully";
+
+			Sleep(500);
+			system("cls");
+			break;
+
+		case 3:
+			cout << endl << "\t\t\t\t      Thanks! Visit Again" << endl;
+			exit(0);
+			break;
+
+		default:
+			cout << "Oops! Invalid choice";
+			break;
+		}
+	}
+}
+
+void Q4() {
+	char reply;
+	int choice, n = 1000, pick;
+	vector<int> order;
+
+	while (true) {
+	choose:
+
+		cout << endl << "Order Handling Software (OHS)" << endl;
+		cout << "Press 1 to Place order" << endl;
+		cout << "Press 2 to Pending orders" << endl;
+		cout << "Press 3 to Serve order" << endl;
+		cout << "Press 4 to Exit" << endl;
+		cout << "Enter your pick : ";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			n++;
+			order.push_back(n);
+			cout << "\nYour order is placed!! \nOrder Number : " << n;
+			Sleep(500);
+			system("cls");
+			goto choose;
+			break;
+
+		case 2:
+			cout << "\nPending orders " << endl;
+			for (auto it = order.begin(); it != order.end(); it++) {
+				cout << *it << endl;
+			}
+
+			cout << "Total Pending orders : " << order.size();
+			Sleep(2000);
+			system("cls");
+			goto choose;
+			break;
+
+		case 3:
+			cout << "\nPending orders " << endl;
+			for (auto it = order.begin(); it != order.end(); it++) {
+				cout << *it << endl;
+			}
+
+			cout << "Pick order : ";
+			cin >> pick;
+			order.erase(remove(order.begin(), order.end(), pick), order.end());
+			cout << "The order has been served!!";
+			Sleep(500);
+			system("cls");
+			goto choose;
+			break;
+
+		case 4:
+			cout << endl << "Thanks! Visit Again" << endl;
+
+			exit(0);
+			break;
+		default:
+			cout << "Oops! Invalid choice";
+			break;
+		}
+	}
+}
+
+void Q5() {
+	char decor[MAX][MAX];
+
+	int n = 11, m = 11;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == 0 || j == 0 || i == m - 1 || j == m - 1)
+				decor[i][j] = '-';
+			else if (i == 1 || j == 1 || i == m - 2 || j == m - 2)
+				decor[i][j] = '*';
+			else if (i == 2 || j == 2 || i == m - 3 || j == m - 3)
+				decor[i][j] = '-';
+			else if (i == 3 || j == 3 || i == m - 4 || j == m - 4)
+				decor[i][j] = '*';
+			else if (i == 4 || j == 4 || i == m - 5 || j == m - 5)
+				decor[i][j] = '-';
+			else if (i == 5 || j == 5 || i == m - 6 || j == m - 6)
+				decor[i][j] = '*';
+		}
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cout << decor[i][j];
+		}
+		cout << endl;
+	}
+}

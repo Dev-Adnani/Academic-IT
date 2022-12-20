@@ -1,0 +1,254 @@
+// Assignment5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q5();
+
+void main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+	//Q5();
+}
+
+void Q1() {
+
+	const int m = 4, n = 3, l = 5;
+	int arr1[m][n] = { {1,2,3},{4,5,6},{7,8,9},{0,1,2} };
+	int arr2[n][l] = { {1,2,3,4,5},{6,7,8,9,0},{1,2,3,4,5} };
+	int result[m][l]{ 0 };
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+
+			for (int k = 0; k < n; k++)
+			{
+				result[i][j] += arr1[i][k] * arr2[k][j];
+			}
+		}
+	}
+
+	cout << "First Matrix" << endl << endl;
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << arr1[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << endl << "Second Matrix" << endl << endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			cout << arr2[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << endl << "Multiplication of First & Second Matrix" << endl << endl;
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			cout << result[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+void Q2() {
+	int mat[3][3], i, j;
+	float determinant = 0;
+
+	cout << "Enter elements of matrix row wise:\n";
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			cin >> mat[i][j];
+
+	cout << "\nGiven matrix is:";
+	for (i = 0; i < 3; i++) {
+		cout << "\n";
+		for (j = 0; j < 3; j++)
+			cout << mat[i][j] << "\t";
+	}
+
+	for (i = 0; i < 3; i++)
+		determinant = determinant + (mat[0][i] * (mat[1][(i + 1) % 3] * mat[2][(i + 2) % 3] - mat[1][(i + 2) % 3] * mat[2][(i + 1) % 3]));
+
+	cout << "\n\ndeterminant: " << determinant;
+
+	cout << "\n\nInverse of matrix is: \n";
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++)
+			cout << ((mat[(j + 1) % 3][(i + 1) % 3] * mat[(j + 2) % 3][(i + 2) % 3]) - (mat[(j + 1) % 3][(i + 2) % 3] * mat[(j + 2) % 3][(i + 1) % 3])) / determinant << "\t";
+		cout << "\n";
+	}
+}
+
+double det(double mat[3][3])
+{
+	double t1 = (mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1]);
+	double t2 = (mat[1][0] * mat[2][2]) - (mat[1][2] * mat[2][0]);
+	double t3 = (mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0]);
+	return (mat[0][0] * t1) + (-mat[0][1] * t2) + (mat[0][2] * t3);
+}
+
+void Q3()
+{
+	int x1, x2, x3, y1, y2, y3;
+	cout << "Enter x1 : ";
+	cin >> x1;
+	cout << "Enter y1 : ";
+	cin >> y1;
+	cout << "Enter x2 : ";
+	cin >> x2;
+	cout << "Enter y2 : ";
+	cin >> y2;
+	cout << "Enter x3 : ";
+	cin >> x3;
+	cout << "Enter y3 : ";
+	cin >> y3;
+
+
+	int result = x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2);
+
+	if (result == 0)
+	{
+		float dist = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2) * 1.0);
+		cout << "Length of the line : " << dist;
+		exit(0);
+	}
+	else
+	{
+		double mat[3][3];
+		mat[0][0] = x1;
+		mat[0][1] = y1;
+		mat[0][2] = 1;
+		mat[1][0] = x2;
+		mat[1][1] = y2;
+		mat[1][2] = 1;
+		mat[2][0] = x3;
+		mat[2][1] = y3;
+		mat[2][2] = 1;
+
+		cout << "\nMatrix formated by the points: \n";
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+				cout << mat[i][j] << " ";
+			cout << endl;
+		}
+		int determatinant = det(mat);
+
+		cout << "The area is: " << fabs(determatinant) * 0.5;
+	}
+}
+
+void Q5()
+{
+
+
+	char race[4][21], power[4][21], just[4], x = 0;
+	int StepX = 0, StepM = 0, StepT = 0, StepD = 0;
+	cout << "Initial screen shows following state:";
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			race[i][j] = '.';
+			race[i][20] = '|';
+		}
+	}
+	power[0][StepX] = 5;
+	power[1][StepM] = 5;
+	power[2][StepT] = 5;
+	power[3][StepD] = 5;
+
+	while (race[0][19] != 'X' && race[1][19] != 'M' && race[2][19] != 'T' && race[3][19] != 'D') {
+		race[0][StepX] = 'X';
+		race[1][StepM] = 'M';
+		race[2][StepT] = 'T';
+		race[3][StepD] = 'D';
+
+		just[0] = StepX;
+		just[1] = StepM;
+		just[2] = StepT;
+		just[3] = StepD;
+
+		system("cls");
+
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < just[i]; j++)
+			{
+				race[i][j] = '-';
+				race[i][20] = '|';
+			}
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 21; j++)
+			{
+				cout << race[i][j];
+			}
+			cout << endl;
+
+		}
+		power[0][StepX] = power[0][StepX] + rand() % 5;
+		power[1][StepM] = power[1][StepM] + rand() % 5;
+		power[2][StepT] = power[2][StepT] + rand() % 5;
+		power[3][StepD] = power[2][StepD] + rand() % 5;
+
+		if (power[0][StepX] >= (StepX + 1) * 5)
+		{
+			StepX++;
+		}
+		if (power[1][StepM] >= (StepM + 1) * 5)
+		{
+			StepM++;
+		}
+		if (power[2][StepT] >= (StepT + 1) * 5)
+		{
+			StepT++;
+		}
+		if (power[3][StepD] >= (StepD + 1) * 5)
+		{
+			StepD++;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (race[i][19] == 'X')
+		{
+			cout << "Winner is X" << endl;
+			break;
+		}
+		else if (race[i][19] == 'M')
+		{
+			cout << "Winner is M" << endl;
+			break;
+		}
+		else if (race[i][19] == 'T')
+		{
+			cout << "Winner is T" << endl;
+			break;
+		}
+		else if (race[i][19] == 'D')
+		{
+			cout << "Winner is D" << endl;
+			break;
+		}
+	}
+
+}
