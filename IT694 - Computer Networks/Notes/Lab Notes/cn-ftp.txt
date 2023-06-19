@@ -1,0 +1,9 @@
+FTP (File Transfer Protocol) is a standard protocol used for transferring files over the internet. It is a client-server protocol, which means that there is a client program that connects to a server program to transfer files.
+
+FTP is used for various purposes such as uploading and downloading files, managing files on a remote server, and backing up data. It is widely used by web developers to upload and manage website files on a remote server.
+
+FTP uses a two-step process for transferring files: authentication and data transfer. In the authentication phase, the client connects to the server using a username and password, and if the credentials are valid, the connection is established. In the data transfer phase, the actual transfer of files occurs.
+
+FTP uses two modes of data transfer: ASCII mode and binary mode. ASCII mode is used for transferring text files, while binary mode is used for transferring binary files such as images, videos, and executable files.
+
+FTP is a relatively old protocol and has some security issues, such as plain-text passwords that are sent over the network. For this reason, FTP is being replaced by more secure protocols such as SFTP (Secure File Transfer Protocol) and FTPS (FTP over SSL/TLS).

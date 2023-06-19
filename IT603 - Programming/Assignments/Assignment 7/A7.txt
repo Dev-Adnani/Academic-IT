@@ -1,0 +1,274 @@
+// Assignment7.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <string>
+#include <array>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+
+void main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+}
+
+void checkFrequency(char* str) {
+
+	char frequencyArr[50][2];
+	for (int i = 0; i < 50; i++) {
+		for (int j = 0; j < 2; j++)
+			frequencyArr[i][j] = 0;
+	}
+
+	int i = 0; int j = 0; int k = 0;
+	while (str[i] != '\0') {
+		int count = 1;
+		while (str[i] == str[i + 1]) {
+			count = count + 1;
+			i++;
+		}
+		frequencyArr[j][k] = str[i];
+		frequencyArr[j][k + 1] = count + 48;
+		k = 0;
+		j++;
+		i++;
+	}
+	frequencyArr[j][k] = '\0';
+	for (int i = 0; i < strlen(str); i++) {
+		for (int j = 0; j < 2; j++) {
+			if (frequencyArr[i][j] != 0)
+				cout << "'" << frequencyArr[i][j] << "'" << " ";
+		}
+		cout << endl;
+	}
+}
+
+void Q1() {
+	string str, str1;
+	cout << "Enter the string: ";
+	getline(cin, str);
+	sort(str.begin(), str.end());
+	int i = 0;
+	while (i < str.length()) {
+		while (isspace(str[i]) && i < str.length()) {
+			i++;
+		}
+		while (!isspace(str[i]) && i < str.length()) {
+			str1 += str[i];
+			i++;
+		}
+	}
+	char mystr[100];
+	strcpy_s(mystr, str1.c_str());
+	checkFrequency(mystr);
+}
+
+void Q2() {
+	vector<string> s;
+	char str[100], * ptr;
+	int i, j, temp, size;
+
+	cout << "Enter a string : ";
+	cin.getline(str, 100);
+
+	ptr = str;
+
+	stringstream ss(ptr);
+	string word;
+
+	while (ss >> word)
+	{
+		for (i = 0; i < word.length(); i++) {
+			for (j = i + 1; j < word.length(); j++) {
+				if (word[i] > word[j]) {
+					temp = word[i];
+					word[i] = word[j];
+					word[j] = temp;
+				}
+			}
+		}
+		s.push_back(word);
+		s.push_back(" ");
+
+	}
+	cout << "Sorted in Alphabetical order : ";
+	for (int i = 0; i < s.size(); i++) {
+		cout << s[i];
+	}
+}
+
+void Q3() {
+
+	char s1[20], * p1;
+	cout << "Enter 1st string : ";
+	cin >> s1;
+	p1 = s1;
+
+	char s2[20], * p2;
+	cout << "Enter 2nd string : ";
+	cin >> s2;
+	p2 = s2;
+
+	char s3[20], * p3;
+	cout << "Enter 3rd string : ";
+	cin >> s3;
+	p3 = s3;
+
+	char s4[20], * p4;
+	cout << "Enter 4th string : ";
+	cin >> s4;
+	p4 = s4;
+
+	char s5[20], * p5;
+	cout << "Enter 5th string : ";
+	cin >> s5;
+	p5 = s5;
+
+	int len1 = strlen(p1);
+	int len2 = strlen(p2);
+	int len3 = strlen(p3);
+	int len4 = strlen(p4);
+	int len5 = strlen(p5);
+
+	if (len1 >= len2 && len1 >= len3 && len1 >= len4 && len1 >= len5) {
+		cout << "\nLongest string is " << s1 << " length is " << len1;
+	}
+	else if (len2 >= len1 && len2 >= len3 && len2 >= len4 && len2 >= len5) {
+		cout << "\nLongest string is " << s2 << " length is " << len2;
+	}
+	else if (len3 >= len1 && len3 >= len2 && len3 >= len4 && len3 >= len5) {
+		cout << "\nLongest string is " << s3 << " length is " << len3;
+	}
+	else if (len4 >= len1 && len4 >= len2 && len4 >= len3 && len4 >= len5) {
+		cout << "\nLongest string is " << s4 << " length is " << len4;
+	}
+	else if (len5 >= len1 && len5 >= len2 && len5 >= len3 && len5 >= len4) {
+		cout << "\nLongest string is " << s5 << " length is " << len5;
+	}
+}
+
+void Q4() {
+	int arr[3][3][3];
+
+	cout << "Please enter 27 values of your choice: \n";
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{
+				cin >> arr[i][j][k];
+			}
+		}
+	}
+
+	int* p[3][3][3];
+	int num, dig{ 3 }, number[3], count = 1;
+
+	cout << "Owner should enter the number: ";
+	cin >> num;
+
+	while (dig--) {
+		cout << num << endl;
+		number[dig] = num % 10;
+		num /= 10;
+	}
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		cout << number[i] << endl;
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{
+				p[i][j][k] = &arr[i][j][k];
+			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{
+				if (count == number[i]) {
+					cout << *p[i][j][k] << " ";
+					count = 0;
+					break;
+				}
+				else
+					count++;
+			}
+			if (count == 0)
+				break;
+		}
+		count = 1;
+	}
+}
+
+void Q5() {
+
+	char arr[10][50]{};
+	char evenArr[10][50]{};
+	char oddArr[10][50]{};
+
+	cout << "Enter the strings: " << endl;
+
+	for (int i = 0; i < 5; i++)
+	{
+		cin.get(arr[i], 50);
+		cin.ignore();
+	}
+
+	char(*pEven)[50] = evenArr;
+	char(*pOdd)[50] = oddArr;
+
+	int k = 0, l = 0;
+	for (int i{}; i < 5; i++) {
+		for (int j{}; j < strlen(arr[i]); j++) {
+			if (i == 1) {
+				*(*(pOdd + k) + j) = arr[i][j];
+			}
+			else if (i % 2 == 0) {
+				*(*(pEven + l) + j) = arr[i][j];
+			}
+			else if (i % 2 == 1) {
+				*(*(pOdd + k) + j) = arr[i][j];
+			}
+		}
+		if (i == 1 || i % 2 == 1)
+			k++;
+		else if (i % 2 == 0)
+			l++;
+	}
+
+	cout << endl << "\t\tChat UI" << endl;
+
+	for (int i = 0; i < size(oddArr); i++)
+	{
+		cout << *(pEven + i) << endl;
+
+		int count = 40 - strlen(oddArr[i]);
+		for (int i = 0; i < count; i++) 
+			cout << " ";
+		
+		cout << *(pOdd + i) << endl;
+	}
+}

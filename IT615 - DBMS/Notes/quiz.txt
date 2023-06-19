@@ -1,0 +1,97 @@
+QUIZ 1
+PostgreSQL is a
+* DBMS -Correct
+* Database
+* Database Instance
+* All of above
+
+Whih of the following is NOT incorrect
+* Database schema define structure of data
+* Database instance refers to only data
+* Database schema defines database constraints
+* None of above
+
+Database Catelogue stores
+* Databse schema
+* Database schema as data - correct
+* Instance data
+* All above are correct
+
+QUIZ 2
+Given a relation Student(SID, UUID, Name, DOB, CPI), What is the Key of this relation . Choose Most appropriate.
+* StudentID
+* UUID
+* StudentID and UUID both, individually -Correct
+* StudentID and UUID in combination
+
+Which of following, a Relation Schema DOES NOT describe
+* Name of Relation
+* List of Attributes
+* Domains for Attributes
+* Constraints
+* None of Above -Correct
+
+QUIZ 3
+Which of following is NOT CORRECT
+* A relation can have composite primary key
+* A relation can have multiple primary keys -Correct
+* A relation can have multiple foreign key
+* A relation can have composite foreign key
+
+What is/are Foreign Key in InvoiceDetails table if Lab02. Choose the best answer.
+* InvNo
+* ItemCode
+* {InvNo, ItemCode}
+* {InvNo}, {ItemCode} -Correct
+
+QUIZ 4
+Which of following operation is different than the rest?
+* INSERT INTO
+* UPDATE
+* DELETE
+* DROP -Correct
+
+Which of following operation can NOT violate referential integrity constraint. Choose Best options.
+* Value for Primary Key in INSERT operation -Correct
+* Value for Foreign Key in INSERT operation
+* Value for Primary Key in Update operation
+* Value for Foreign Key in Update operation
+
+QUIZ 5
+While using INSERT INTO command, which of following may not be required. Choose best option
+* Specifying value for Primary Key attributes
+* Value for Foreign Key attribute -Correct
+* Value for attribute constrained to be NOT NULL
+* Attribute values should be in the order of attributes appearing in corresponding CREATE TABLE statement
+
+Which of following is NOT correct
+* Number of Tuples returned by a PROJECT operation can be lesser than operand relation
+* Number of Tuples returned by SELECT operation can never be same as number of tuples in operand relation -Correct
+* Number of Tuples returned by SELECT operation can be ZERO
+* None of Above
+
+QUIZ 6
+What shall be result of following SQL statement "SELECT SUPER_ENO FROM EMPLOYEE UNION SELECT MGR_ENO FROM DEPARTMENT" 
+* A bag of ENOs that are either supervisor or managers
+* A set of ENOs that are either supervisor or managers -Correct
+* A bag of ENOs that are supervisor AND managers
+* A set of ENOs that are supervisor AND managers
+
+Which of following is NOT recommended to be present in a good SQL query
+* A subquery in where clause
+* A co-related subquery in FROM clause
+* A co-related subquery in WHERE clause -Correct
+* None of Above
+
+QUIZ 7
+Which of following is NOT TRUE about ER Diagram 
+* We can have Primary Key in ER Diagram
+* We can have multi-value attributes in ER Diagram
+* We can have Foreign Key in ER Diagram  -Correct
+* None of Above
+
+Which of Following NOT True in relation to ER Diagram to Relational Mapping
+* Every Strong Entity gets a corresponding Relation
+* We create separate Relation for Multi-value attribute
+* We create separate relation for 1:N relationship -Correct
+* None of the Above

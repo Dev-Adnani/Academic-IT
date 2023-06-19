@@ -1,0 +1,6 @@
+CN Assignment 9 
+Random data by 202212012
+Server Hello ABCD
+Random data by 202212083
+Server Bye ABCD
+

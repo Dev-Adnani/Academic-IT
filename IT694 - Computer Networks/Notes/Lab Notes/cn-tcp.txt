@@ -1,0 +1,59 @@
+TCP : 
+
+TCP stands for Transmission Control Protocol. It is a communication protocol that is used to send and receive data over networks.
+
+TCP is a reliable protocol that ensures that data packets are delivered in the correct order and without errors. 
+It achieves this by breaking data into small segments, sending them separately, and then reassembling them at the destination.
+
+TCP is used for many applications, including email, file transfer, and web browsing. It is a fundamental part of the internet and allows computers all over the world to communicate with each other.
+
+
+TCP - Features :
+
+TCP's reliability features include the following:
+
+    Sequencing: TCP numbers each data packet that it sends so that it can reassemble them in the correct order at the receiver's end.
+
+    Acknowledgments: TCP uses acknowledgments to confirm that data packets have been received successfully.
+
+    Retransmission: If a data packet is not acknowledged, TCP will retransmit it to ensure that all data is eventually delivered correctly.
+
+    Flow control: TCP uses flow control to prevent the sender from overwhelming the receiver with too much data.
+
+    Congestion control: TCP uses congestion control to prevent network congestion by slowing down the rate at which data is sent in response to traffic congestion.
+
+    Error checking: TCP includes error checking to ensure that data packets are not corrupted or lost in transit.
+
+These features make TCP a reliable and robust protocol that is widely used for data transmission over networks, including the internet.
+
+
+TCP - ACK :
+
+In TCP (Transmission Control Protocol), acknowledgments (or ACKs) are messages sent by the receiver back to the sender to confirm that data packets have been received successfully.
+
+When the sender sends data packets, it waits for an acknowledgment from the receiver before sending the next packet. This ensures that the data is transmitted reliably and in the correct order.
+
+If the sender does not receive an acknowledgment within a certain time frame, it assumes that the packet has been lost or damaged and retransmits it. This helps to ensure that all data is eventually delivered correctly, even if some packets are lost or delayed in transit.
+
+Acknowledgments are a key part of TCP's reliability features and help to ensure that data is transmitted correctly and efficiently over networks.
+
+TCP - Sequencing :
+
+Sequencing in TCP (Transmission Control Protocol) is the process of assigning a unique sequence number to each data segment that is transmitted between the sender and the receiver.
+
+Each segment is numbered so that the receiver can arrange them in the correct order when they are received. This is important because TCP does not guarantee that the segments will arrive at the receiver in the order they were sent.
+
+The receiver uses the sequence numbers to determine which segments are missing or out of order and requests that they be retransmitted. TCP also uses the sequence numbers to ensure that each segment is received only once, even if it is retransmitted due to errors or network congestion.
+
+Overall, sequencing is a critical aspect of TCP's reliability features, as it ensures that data is transmitted in the correct order and that lost or corrupted segments can be detected and retransmitted as needed.
+
+
+TCP - CheckSum :
+
+Checksum is a form of error detection that is used in both TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). It is a mathematical function that takes a packet of data and generates a value that is used to verify the integrity of the data.
+
+In TCP, the checksum is computed over the entire TCP segment, including the TCP header and payload data. The receiver of the TCP segment recomputes the checksum using the same algorithm and compares it with the value in the received segment. If the values match, the segment is assumed to be error-free.
+
+In UDP, the checksum is computed over the entire UDP datagram, including the UDP header and payload data. The receiver of the UDP datagram recomputes the checksum using the same algorithm and compares it with the value in the received datagram. If the values match, the datagram is assumed to be error-free.
+
+The checksum is an important part of both TCP and UDP, as it helps to ensure the integrity and accuracy of data transmission over networks. If errors are detected, TCP and UDP will take appropriate measures to correct or retransmit the data as needed to ensure that it is delivered correctly.

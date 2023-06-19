@@ -1,0 +1,214 @@
+lec 1 :
+
+lec 2 :
+What’s the Internet
+What’s a protocol
+Access network: digital subscriber line (DSL)
+Access network: cable network
+Access network: home network
+Enterprise access networks (Ethernet)
+Wireless access networks
+Physical media : coax, fiber,radio
+packet-switching
+
+lec 3 :
+Packet-switching: store-and-forward
+Packet Switching: queueing delay, loss
+routing and forwarding
+circuit switching
+Circuit switching: FDM versus TDM
+Packet switching versus circuit switching
+Internet structure: network of networks
+How do loss and delay occur?
+Four sources of packet delay 
+	1.nodal processing
+	2.queueing delay
+	3.transmission delay
+	4.propagation delay
+Packet loss
+Throughput
+Internet protocol stack or ISO/OSI reference model
+Network security
+
+
+lec 4:
+Application architectures
+	 client-server
+	 peer-to-peer (P2P)
+Processes communicating
+Sockets
+Addressing processes
+
+lec 5:
+Transport service requirements: common apps
+Internet transport protocols services
+	1.TCP service
+	2.UDP service
+
+lec 6:
+Web and HTTP
+HTTP overview
+HTTP connections
+	1.non-persistent HTTP
+	2.persistent HTTP
+HTTP request message
+HTTP request message: general format
+Method types
+	1.HTTP/1.0    GET POST HEAD
+	2.HTTP/1.1    GET POST HEAD PUT DELETE
+HTTP response message
+HTTP response status codes
+
+lec 7:
+User-server state: cookies
+Web caches (proxy server)
+Caching example
+
+lec 8:
+DNS
+DNS : services, structure, a distributed, hierarchical database
+DNS: root name servers
+TLD(top-level domain), authoritative servers
+Local DNS name server
+DNS: caching, updating records
+DNS protocol, messages
+Inserting records into DNS
+Attacking DNS
+	1.DDoS attacks
+	2.redirect attacks
+
+
+lec 9:
+Peer to peer (P2P) application
+File sharing application (torrent protocol)
+Pure P2P architecture
+File distribution: client-server vs P2P
+File distribution time: client-server
+File distribution time: P2P
+P2P file distribution: BitTorrent
+BitTorrent: requesting, sending file chunks
+
+lec 10:
+Video Streaming and CDNs
+Multimedia: video
+Streaming stored video
+Streaming multimedia: DASH(Dynamic, Adaptive Streaming over HTTP)
+Content distribution networks(CDNs)
+
+lec 11:
+Transport vs. network layer
+Internet transport-layer protocols
+Multiplexing/demultiplexing
+Connectionless demultiplexing
+Connection-oriented demux
+UDP: User Datagram Protocol
+UDP : segment header, checksum
+
+lec 12:
+Principles of reliable data transfer
+Reliable data transfer
+
+lec 13:
+Pipelined protocols
+	1.Go-back-N
+	2.Selective Repeat
+Go-Back-N(GBN): sender
+GBN: sender extended FSM
+GBN: receiver extended FSM
+Selective repeat: sender, receiver windows
+
+lec 14:
+TCP: Overview
+TCP segment structure
+TCP flow control
+sockets
+Connection Management
+TCP 3-way handshake
+TCP 3-way handshake: FSM
+TCP: closing a connection
+
+
+lec 15:
+Principles of congestion control
+Causes/costs of congestion
+TCP congestion control: additive increase,multiplicative decrease
+TCP: detecting, reacting to loss
+TCP: switching from slow start to CA
+TCP throughput
+Why is TCP fair?
+Explicit Congestion Notification (ECN)
+
+lec 16:
+network layer
+Two key network-layer functions
+	1.forwarding
+	2.routing
+Network layer: data plane, control plane
+Network layer service models
+Router architecture overview
+Input port functions:
+	1.physical layer
+	2.data link layer
+	3.decentralized switching
+Longest prefix matching
+
+lec 17:
+network layer architecture 
+Switching fabrics
+Switching via memory
+	-first generation routers
+Switching via a bus
+Switching via interconnection network
+Input port queuing
+	-Head-of-the-Line (HOL) blocking
+Output ports
+	- buffering
+	- scheduling
+The Internet network layer
+IP datagram format
+IP addressing
+Subnets
+
+lec 18:
+IP addressing: CIDR(Classless InterDomain Routing)
+DHCP: Dynamic Host Configuration Protocol
+DHCP client-server scenario
+Hierarchical addressing: route aggregation
+NAT: network address translation
+IPv6 datagram format
+Transition from IPv4 to IPv6
+Tunneling
+
+lec 19:
+Routing protocols
+Graph abstraction of the network
+Routing algorithm classification
+	global:
+	decentralized: 
+	static: 
+	dynamic:
+flooding
+A link-state routing algorithm
+	Dijkstra’s algorithm
+Distance vector algorithm
+Comparison of LS and DV algorithms
+
+
+lec 20:
+Making routing scalable
+Internet approach to scalable routing
+Interconnected ASes
+Inter-AS tasks
+Intra-AS Routing
+OSPF (Open Shortest Path First)
+OSPF “advanced” features
+Hierarchical OSPF
+Internet inter-AS routing: BGP
+Path attributes and BGP routes
+BGP messages
+BGP, OSPF, forwarding table entries
+BGP route selection
+Hot Potato Routing
+BGP: achieving policy via advertisements
+ICMP: internet control message protocol
+Traceroute and ICMP

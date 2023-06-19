@@ -1,0 +1,74 @@
+EXTRA QUESTIONS:
+1. HTTP Version 1.0 VS 1.1?
+A: HTTP 1.1 comes with persistent connections which define that we can have more than one request or response on the same HTTP connection.
+ While in HTTP 1.0 you have to open a new connection for each request and response.
+
+2. What is IP Address?
+A: An IP address is a unique address that identifies a device on the internet or a local network. IP stands for "Internet Protocol," which is the set of rules governing the format of data sent via the internet or local network.
+
+3. IPV4 VS IPV6?
+A: ---IPv4 is composed of 32-bit address length and is the fourth version of the Internet Protocol (IP). IPv6 is composed of 128-bit address length and is the latest updated version of the Internet Protocol (IP).
+
+--- IPv4 address is numerically based with 4 fields separated by a dot (.). IPv6 address is alphanumeric based consisting of 8 fields separated by a colon (:).
+
+--- In the case of IPv4 addressing no encryption or authentication services are initiated. IPv6 provides proper encryption and authentication services for the address.
+
+4. What is HTTP Response Status Code?
+A: HTTP response status codes indicate whether a specific HTTP request has been successfully completed.
+
+---Examples: 200-OK, 511-Network Authentication Required, 404-Not Found
+
+5. What is ”IF-MODIFIED-SINCE”?
+A: The If-Modified-Since request HTTP header makes the request conditional: the server sends back the requested resource, with a 200 status, only if it has been last modified after the given date.
+
+6. What is Content-Length?
+A: The Content-Length is the actual size of the HTTP response body in bytes.
+
+7. What is a TCP Segment?
+A: A TCP segment consists of a segment header and a data section.
+
+8. What is "telnet smtp.gmail.com 25"?
+A: 
+---Connecting to smtp.gmail.com on port 25 using Telnet command would attempt to establish a connection to Gmail's Simple Mail Transfer Protocol (SMTP) server. However, starting February 2021, Gmail no longer supports plain text authentication, which means that you cannot connect to Gmail's SMTP server using Telnet with the 25 port.
+
+---Instead, you can use a secure connection with SSL/TLS to connect to Gmail's SMTP server using port 465 or 587. For example, you can use the following command to connect to Gmail's SMTP server using Telnet with SSL/TLS: "telnet smtp.gmail.com 465".
+
+---Once the connection is established, you can then follow the SMTP protocol to send email messages. However, it's worth noting that using Telnet to send email messages is not a recommended method, as it is not secure and may expose your login credentials. It's better to use a dedicated email client or a library that supports secure authentication and encryption.
+
+
+9. What is "Src Port" and "Dst Port"?
+A:
+---In Wireshark, "Src Port" stands for the source port and "Dst Port" stands for the destination port.
+---When a device sends a packet over a network, it includes a source port and a destination port in the packet header. The source port is the port number on the sender's device that the packet is being sent from, while the destination port is the port number on the receiver's device that the packet is being sent to.
+
+10. What is nslookup?
+A: nslookup is the name of a program that lets an Internet server administrator or any computer user enter a host name (for example, "whatis.com") and find out the corresponding IP address or domain name system (DNS) record. 
+
+11. What is nslookup -type=ns google.com?
+A: This causes nslookup to send a query for a type-NS record to the default local DNS server. In words, the query is saying, “Please send me the host names of the authoritative DNS for google.com”.
+
+12. What does nslookup google.com 8.8.8.8 mean?
+A: Running the command "nslookup google.com 8.8.8.8" means that you are sending a DNS query to the Google Public DNS server at IP address 8.8.8.8 to obtain the IP address associated with the domain name "google.com".
+
+
+13. What is ipconfig command?
+A: A command line utility that is used to display and manage the IP address assigned to the machine.
+
+14. What is TTL in Answers Of Wireshark?
+A: Time To Live, or TTL for short, is the sort of expiration date that is put on a DNS record. The TTL serves to tell the recursive server or local resolver how long it should keep said record in its cache. The longer the TTL, the longer the resolver holds that information in its cache.
+
+15. What is TCP SYN packet?
+A: SYN packets are normally generated when a client attempts to start a TCP connection to a server, and the client and server exchange a series of messages, which normally runs like this: The client requests a connection by sending a SYN (synchronize) message to the server.
+
+16. What are HTTP Get Messages?
+A: 
+---HTTP GET request messages are a type of HTTP request message used to retrieve a resource (such as a web page, image, or file) from a server over the Internet. 
+---HTTP GET requests are initiated by a client, such as a web browser, which sends a GET request message to the server containing the URL of the requested resource. The server then responds with an HTTP response message that contains the requested resource, typically in the form of HTML, CSS, JavaScript, or an image file.
+
+17. What is a URL?
+A: A URL (Uniform Resource Locator) is a unique identifier used to locate a resource on the Internet. It is also referred to as a web address. URLs consist of multiple parts -- including a protocol and domain name -- that tell a web browser how and where to retrieve a resource.
+
+18. Images downloaded serially or parallel?
+A: 
+---Serial image downloading means that the browser downloads images one after the other, in a sequential manner. This means that the browser will start downloading the first image and wait for it to finish downloading before moving on to the next image. This can result in slower image loading times, as the browser must wait for each image to finish downloading before it can display the page.
+---Parallel image downloading, on the other hand, means that the browser downloads multiple images at the same time. This can result in faster image loading times, as the browser can download multiple images simultaneously. To achieve parallel image downloading, modern browsers can use multiple connections to the server or use a technique called "pipelining", where multiple requests are sent to the server before receiving responses.

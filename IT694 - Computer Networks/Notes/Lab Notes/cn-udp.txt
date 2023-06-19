@@ -1,0 +1,39 @@
+UDP :
+
+UDP stands for User Datagram Protocol. It is a communication protocol used to send and receive data over networks.
+
+UDP is a lightweight and simple protocol that does not have the same reliability features as TCP. 
+It does not ensure that data packets are delivered in order or without errors, but it is faster and more efficient than TCP.
+
+UDP is commonly used for applications that require real-time or low-latency data transmission, such as online gaming, video streaming, and VoIP (voice over IP) calls. It is also used for some types of network discovery and broadcasting.
+
+
+RUDP :
+
+Reliable UDP (User Datagram Protocol) is an extension of the standard UDP protocol that adds reliability features similar to those found in TCP.
+
+Reliable UDP uses techniques such as sequence numbers, acknowledgments, and retransmissions to ensure that data packets are delivered in order and without errors.
+
+The advantage of reliable UDP over TCP is that it is faster and more efficient, with lower latency and less overhead. It is often used for applications that require high-speed,
+low-latency data transfer, such as online gaming and video streaming.
+
+Reliable UDP is sometimes also called "TCP-friendly UDP" because it provides many of the same reliability features as TCP while still using the UDP protocol.
+
+
+UDP - Features :
+
+UDP (User Datagram Protocol) is a connectionless, unreliable protocol that provides a simple way to transmit data over networks. Its key features include:
+
+    Low overhead: UDP has a small header that adds minimal overhead to the data being transmitted, which makes it fast and efficient.
+
+    Connectionless: UDP does not establish a connection before transmitting data, which makes it simple and lightweight.
+
+    Unreliable: UDP does not guarantee that data will be delivered in order, without errors, or without duplication. It is up to the application to ensure that the data is transmitted reliably.
+
+    Low latency: UDP is designed to provide low latency, which makes it ideal for real-time applications like video conferencing and online gaming.
+
+    Multicast support: UDP supports multicast, which allows a single packet to be transmitted to multiple receivers at the same time.
+
+    No congestion control: UDP does not have built-in congestion control mechanisms, which means that it can potentially overwhelm the network with too much traffic.
+
+Overall, UDP is a simple and lightweight protocol that is suitable for applications that require low latency and can tolerate some degree of data loss or errors. It is commonly used for real-time applications like video streaming, online gaming, and VoIP (Voice over IP).

@@ -1,0 +1,261 @@
+// Assignment2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <sstream>
+#include <iomanip>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+void Q4();
+void Q5();
+void Q6();
+void Q7();
+void Q8();
+
+int main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+	//Q4();
+	//Q5();
+	//Q6();
+	//Q7();
+	//Q8();
+}
+
+void Q1() {
+
+	vector<string> arrName;
+	vector<double> arrGrade;
+	string name;
+	double grade, avg = 0;
+	char reply;
+
+	do {
+		std::cout << "Enter Student name : ";
+		cin >> name;
+		arrName.push_back(name);
+
+		std::cout << "Enter Student grade : ";
+		cin >> grade;
+		arrGrade.push_back(grade);
+
+		avg += grade;
+
+		cout << "Do you want to enter another student? (y/n): ";
+		cin >> reply;
+	} while (tolower(reply) == 'y');
+
+	avg /= arrGrade.size();
+
+	cout << "\nAverage of all students : " << avg << endl << endl;
+
+	cout << setw(30) << "Student Details" << endl << endl;
+
+	cout << left << setw(10) << "Name" << left << setw(8) << "Grade" << left
+		<< setw(10) << "Name" << left << setw(8) << "Garde" << left << setw(10)
+		<< "Name" << left << setw(8) << "Garde" << endl;
+
+	for (int i = 0; i < arrName.size() && arrGrade.size(); i++)
+	{
+		cout << left << setw(10) << arrName[i] << left << setw(8) << arrGrade[i] << left << setw(10);
+
+		int d = 3;
+		if ((i + 1) % d)
+			continue;
+		cout << endl;
+	}
+}
+
+void Q2() {
+
+	string str;
+	int d = 3, i = 0;
+
+	cout << "Enter a string : ";
+	getline(cin, str);
+
+	map<string, int> countWord;
+	stringstream ss(str);
+	string word;
+
+	while (ss >> word)
+		countWord[word]++;
+
+	cout << setw(40) << "Words and Counts" << endl;
+
+	map<string, int>::iterator m;
+	for (m = countWord.begin(); m != countWord.end(); m++, i++) {
+		cout << left << setw(10) << m->first << " -> " << left << setw(10)
+			<< m->second << left << setw(10);
+
+		if ((i + 1) % d)
+			continue;
+		cout << endl;
+	}
+
+}
+
+void Q3() {
+	string str;
+	char c, a = '*';
+	int i = 0;
+	cout << "Enter a string : ";
+	getline(cin, str);
+
+	while (str[i]) {
+		c = str[i];
+		if (isspace(c)) {
+			break;
+		}
+		else if (isalnum(c)) {
+			c = a;
+			str[i] = c;
+		}
+		i++;
+	}
+
+	cout << "String : " << str;
+}
+
+void Q4() {
+
+	string str1, str2;
+	int found = 0, notFound = 0, len1, len2;
+	cout << "Enter 1st string : ";
+	getline(cin, str1);
+
+	cout << "Enter 2nd string : ";
+	getline(cin, str2);
+
+	len1 = str1.length();
+	len2 = str2.length();
+
+	if (len1 == len2) {
+
+		sort(str1.begin(), str1.end());
+		sort(str2.begin(), str2.end());
+
+		for (int i = 0; i < len1; i++)
+			if (str1[i] != str2[i])
+				notFound = 1;
+
+		if (notFound == 1)
+			cout << "\nStrings are not Anagram";
+		else
+			cout << "\nStrings are Anagram";
+	}
+	else {
+		cout << "Character count Mismatched!";
+	}
+
+}
+
+void Q5() {
+	string str1, str2;
+	int notFound = 0;
+
+	cout << "Enter 1st string : ";
+	getline(cin, str1);
+
+	cout << "Enter 2nd string : ";
+	getline(cin, str2);
+
+	str1.erase(remove(str1.begin(), str1.end(), ' '), str1.end());
+	str2.erase(remove(str2.begin(), str2.end(), ' '), str2.end());
+
+	if (str1.length() == str2.length()) {
+
+		sort(str1.begin(), str1.end());
+		sort(str2.begin(), str2.end());
+
+		for (int i = 0; i < str1.length(); i++)
+			if (str1[i] != str2[i])
+				notFound = 1;
+
+		if (notFound == 1)
+			cout << "\nStrings are not Anagram";
+		else
+			cout << "\nStrings are Anagram";
+	}
+	else {
+		cout << "Character count Mismatched!";
+	}
+}
+
+void Q6() {
+	string str, word, copy;
+	char c;
+	int check = 0, i = 0;
+	vector<string> text;
+
+	cout << "Enter a string : ";
+	getline(cin, str);
+
+	cout << "Enter first character you want to search from string : ";
+	cin >> c;
+
+	stringstream ss(str);
+
+	while (ss >> word) {
+		if (word[0] == c) {
+			text.push_back(word);
+		}
+	}
+
+	for (auto it = text.begin(); it != text.end(); it++) {
+		copy = *it;
+		while (copy[i]) {
+			if (check == 0) {
+				copy[i] = toupper(copy[i]);
+			}
+			break;
+		}
+		cout << copy << " ";
+	}
+}
+
+void Q7() {
+
+	string str, word;
+	int number = 0, sum = 0, i = 0;
+	cout << "Enter long sequence of integer numbers : ";
+	getline(cin, str, '#');
+	cout << "num : " << str << endl;
+
+	stringstream convert(str);
+
+	while (convert >> word)
+	{
+		number = stoi(word);
+		sum += number;
+		i++;
+	}
+
+	cout << endl << "Sum of Digits = " << sum;
+}
+
+void Q8() {
+	string str;
+	int count = 0, i = 0, sum = 0;
+
+	cout << "Enter the numbers : ";
+	getline(cin, str, '#');
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if ((str[i] >= '0') && (str[i] <= '9'))
+		{
+			sum += (str[i] - '0');
+		}
+	}
+	cout << "Sum of all digits : " << sum;
+}

@@ -1,0 +1,76 @@
+body {
+  margin: 0%;
+}
+
+header,
+footer {
+  background: cyan;
+  height: 20vh;
+  padding: 1em;
+  box-sizing:initial;
+}
+section {
+  display: flex;
+  width: 100%;
+}
+nav {
+  display: flex;
+  height: 60vh;
+  width: 20vw;
+  flex-grow: 1;
+  background: rgb(224, 224, 167);
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+}
+aside {
+  height: 60vh;
+  width: 20vw;
+  flex-grow: 1;
+  background: rgb(224, 224, 167);
+}
+article {
+  height: 60vh;
+  width: 60vw;
+  flex-grow: 3;
+}
+
+.logo {
+  background: url("https://avatars.githubusercontent.com/u/61565182?v=4")
+    no-repeat;
+  background-size: 80%;
+  width: 10vw;
+  height: 20vh;
+  float: right;
+}
+
+@media only screen and (max-width: 600px) {
+  nav,
+  aside {
+    display: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1vh 1vw;
+  width: 10em;
+  height: 5ex;
+  background-color: rgb(223, 221, 210);
+  border: 2px solid royalblue;
+  border-radius: 10vh;
+  font-weight: bold;
+  color: black;
+}
+
+a:hover {
+  background-color: red;
+}
+
+a:active {
+  color: wheat;
+  box-shadow: 1vh 1vh 3vh #16bd96;
+}

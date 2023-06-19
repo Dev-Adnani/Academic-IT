@@ -1,0 +1,98 @@
+Topics:
+1. HTTP Protocol
+2. Wireshark Software
+3. SMTP
+4. DNS
+5. URL
+
+
+HTTP PROTOCOL:
+1. HTTP stands for HyperText Transfer Protocol. The protocol is used to transfer hypertext between two comp uters.
+2. HTTP provides standard between a web browser and web server to establish communication. It is set of rules for transferring data from one computer to another. Data such as text, images, and other multimedia files are shared on the World Wide Web. 
+3. Whenever a web user opens their web browser, user will indirectly uses HTTP.
+4. HTTP is application layer protocol which is used to deliver data from server to client or vice-versa.
+5. Clients and servers communicate by exchanging individual messages (as opposed to a stream of data). The messages sent by the client, usually a Web browser, are called requests and the messages sent by the server as an answer are called responses.
+6. HTTP is a generic and stateless protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
+7. Basically, HTTP is a TCP/IP based communication protocol, that is used to deliver data (HTML files, image files, query results, etc.) on the World Wide Web. The default port is TCP 80, but other ports can be used as well.
+8. The HTTP protocol is a request/response protocol based on the client/server based architecture where web browsers, robots and search engines, etc. act like HTTP clients, and the Web server acts as a server.
+9. The HTTP client sends a request to the server in the form of a request method, URI, and protocol version, followed by a MIME-like message containing request modifiers, client information, and possible body content over a TCP/IP connection
+9. The HTTP server responds with a status line, including the message's protocol version and a success or error code, followed by a MIME-like message containing server information, entity meta information, and possible entity-body content.	
+
+
+WIRESHARK:
+1. Wireshark is a network protocol analyzer, or an application that captures packets from a network connection, such as from your computer to your home office or the internet. 
+2. It is used to track the packets so that each one is filtered to meet our specific needs. It is commonly called as a sniffer, network protocol analyzer, and network analyzer. It is also used by network security engineers to examine security problems.
+3. Wireshark is a free to use application which is used to apprehend the data back and forth. It is often called as a free packet sniffer computer application. It puts the network card into an unselective mode, i.e., to accept all the packets which it receives.
+
+
+SMTP:
+1. SMTP (Simple Mail Transfer Protocol) is a TCP/IP protocol used in sending and receiving email. SMTP is used most commonly by email clients, including Gmail, Outlook, Apple Mail and Yahoo Mail.
+The other two are Post Office Protocol v3 (POP3) and Internet Message Access Protocol (IMAP). SMTP is one of several internet protocols that are designed to be plain text and ASCII printable. This means that traffic sent over SMTP is visible and easily readable by eavesdroppers. 
+When running in plain text mode, SMTP uses port 25. Port 587 is the official port that should be used by SMTP clients submitting traffic to be routed by a mail server.
+2. SMTP can send and receive email, but email clients typically use a program with SMTP for sending email. Because SMTP is limited in its ability to queue messages at the receiving end, it's usually used with either Post Office Protocol 3 (POP3) or Internet Message Access Protocol (IMAP), which lets the user save messages in a server mailbox and download them periodically from a server.
+SMTP is typically limited to and relied on to send messages from a sender to a recipient.
+3. An SMTP server is an application or computer that sends, receives and relays email. These servers typically use TCP on port 25 or 587. 
+4. SMTP servers are set to an always-on listening mode and as soon as a server detects a TCP connection from a client, the SMTP process initiates a connection to port 25 to send the email.
+5. Outgoing SMTP servers send messages for users. Email clients which are used to read and send emails, must also have the Internet Protocol (IP) address of the SMTP server. To handle issues such as spam, server administrators must control which clients can use the server. They can do this either by restricting users by their IP address or, more likely, by imposing a system or command that requires the authentication of clients.
+6. It works as follows: An email server uses SMTP to send a message from an email client to another email server. 
+   The email server uses SMTP as a relay service to send the email to the receiving email server. 
+   The receiving email server uses an email client to download incoming mail via IMAP, for example, and places it in the recipient's inbox.
+7. So, for example, when a user clicks the "send" button, a TCP connection is established that links to an SMTP server. 
+When the SMTP server receives the TCP connection from a client, the SMTP process starts a connection through port 25 to send the email. 
+8. From here, the SMTP client tells the server what to do with information such as the sender's and recipient's email addresses and the email's content.
+A mail transfer agent (MTA) then checks if both email addresses are from the same email domain. 
+If they're from the same domain, the email is sent; if not, the server uses the domain name system (DNS) to identify the recipient's domain and then sends it to the correct server. 
+The recipient then uses IMAP or POP3 protocols to receive the email.
+
+IMAP:
+1. IMAP is a standard email retrieval protocol that manages and retrieves email messages. 
+It keeps an email on a server and then synchronizes it across different devices. 
+IMAP enables users to organize messages into folders, flag messages and save draft messages on the server. 
+2. Users can also have multiple email client applications that sync with the email server to consistently show which messages are read or unread.
+
+POP:
+1. Most email servers and clients support POP and use it to receive emails from remote servers and send them to a local client.
+POP is a one-way client-server protocol in which emails are received and held on the email server.
+2. POP also enables users to download emails from a server to the client so the recipient can view the email offline.
+
+DNS:
+
+1. The domain name system (DNS) is a naming database in which internet domain names are located and translated into Internet Protocol (IP) addresses.
+ The domain name system maps the name people use to locate a website to the IP address that a computer uses to locate that website.
+2. For example, if someone types "example.com" into a web browser, a server behind the scenes maps that name to the corresponding IP address. 
+An IP address is similar in structure to 203.0.113.72.
+3. DNS servers convert URLs and domain names into IP addresses that computers can understand and use.
+They translate what a user types into a browser into something the machine can use to find a webpage. 
+This process of translation and lookup is called DNS resolution.
+4. How it works: When you type a domain name (such as www.example.com) into your web browser, 
+the browser sends a request to a DNS resolver, which is a server that is responsible for resolving domain names into IP addresses. 
+The resolver then checks its local cache to see if it has a record of the IP address for the requested domain name. If the record is not in the cache, the resolver sends a query to one or more DNS root servers to request the IP address of the top-level domain (such as .com or .net).
+5. Then the root servers respond with a referral to a set of authoritative name servers that are responsible for the domain name in question. The resolver then sends a query to one of the authoritative name servers, which responds with the IP address for the requested domain name. The resolver then caches the IP address so that it can quickly respond to future requests for the same domain name.
+
+6. Types Of DNS: 
+---Recursive DNS Server: This type of DNS server receives requests from client devices and searches for the IP address associated with the requested domain name. 
+	If the server does not have the IP address cached, it will recursively search the DNS hierarchy until it finds the IP address and returns it to the client.
+---Authoritative DNS Server: This type of DNS server stores the IP addresses associated with domain names within a specific zone. 
+	When a recursive DNS server queries for the IP address of a domain name within that zone, the authoritative DNS server provides the IP address.
+---Root DNS Server: This type of DNS server is the top-level server in the DNS hierarchy and is responsible for resolving requests for top-level domains, such as .com, .org, .net, etc. There are 13 root DNS servers distributed around the world.
+---TLD (Top-Level Domain) DNS Server: This type of DNS server is responsible for resolving requests for domains within a specific top-level domain, such as .com or .org.
+---Secondary DNS Server: This type of DNS server is a backup server that copies the zone information from a primary authoritative DNS server. If the primary server fails, the secondary server can respond to requests until the primary server is restored.
+---Intermediate DNS Server: Also known as a forwarding DNS server, is a DNS server that is configured to forward DNS queries to other DNS servers. When a client device sends a DNS query to an intermediate DNS server, the intermediate server forwards the query to another DNS server, typically a recursive DNS server, to resolve the query.
+
+There are several types of DNS queries that can be sent to a DNS server to resolve a domain name to an IP address or retrieve other DNS information. Here are some of the most common types of DNS queries:
+
+    A record query: This type of query is used to resolve a domain name to an IPv4 address.
+
+    AAAA record query: This type of query is used to resolve a domain name to an IPv6 address.
+
+    MX record query: This type of query is used to retrieve the mail exchange (MX) records for a domain, which specify the mail servers that are responsible for accepting email messages for that domain.
+
+    CNAME record query: This type of query is used to retrieve the canonical name (CNAME) records for a domain, which specify aliases for the domain name.
+
+    NS record query: This type of query is used to retrieve the name server (NS) records for a domain, which specify the authoritative name servers for the domain.
+
+    PTR record query: This type of query is used to retrieve the pointer (PTR) records for a given IP address, which map an IP address to a domain name.
+
+    SRV record query: This type of query is used to retrieve the service (SRV) records for a domain, which specify the location of specific network services for that domain.
+
+These are some of the most common types of DNS queries, and there are other query types as well, depending on the specific needs of the application or network.

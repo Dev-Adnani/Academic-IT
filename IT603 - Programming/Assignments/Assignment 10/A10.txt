@@ -1,0 +1,120 @@
+// Assignment9.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Q1();
+void Q2();
+void Q3();
+
+int main()
+{
+	Q1();
+	//Q2();
+	//Q3();
+
+}
+
+void Q1() {
+	char* input[5];
+	char element[200], * ptr;
+	int j = 0;
+	for (int i{ 0 }; i < 5; i++)
+	{
+		cout << "Enter " << ++j << " name : ";
+		cin.getline(element, 200);
+		ptr = element;
+		char* name = new char[strlen(ptr) + 1];
+
+		for (int i = 0; i < strlen(name); i++)
+		{
+			name[i] = ptr[i];
+		}
+		input[i] = name;
+	}
+
+	j = 0;
+	cout << "Names in array " << endl;
+	for (int i{ 0 }; i < 5; i++)
+	{
+		cout << "Name " << ++j << " " << input[i] << endl;
+	}
+	delete[]input;
+	delete[]ptr;
+	ptr = nullptr;
+}
+
+void Q2() {
+	struct player
+	{
+		char* name;
+		int age;
+		char* game;
+	};
+
+	player p1{};
+	char* input;
+	input = new char[100];
+
+	cout << "Enter your name : ";
+	cin.getline(input, 100);
+
+	p1.name = new char[strlen(input) + 1];
+	strcpy_s(p1.name, strlen(input) + 1, input);
+
+	cout << "Enter your age : ";
+	cin >> p1.age;
+
+	cout << "Enter game name : ";
+	cin.ignore();
+	cin.getline(input, 100);
+
+	p1.game = new char[strlen(input) + 1];
+	strcpy_s(p1.game, strlen(input) + 1, input);
+
+	cout << "\nPlayer Information" << endl;
+	cout << "Your name is " << p1.name << endl;
+	cout << "Your age is " << p1.age << endl;
+	cout << "Your game name is " << p1.game << endl;
+
+	free;
+	delete[] input;
+	input = nullptr;
+}
+
+void Q3() {
+	int m, n, c = 0;
+
+	cout << "Enter N size : ";
+	cin >> n;
+	cout << "Enter M size : ";
+	cin >> m;
+
+	if (m <= 0 || n <= 0) {
+		exit(0);
+	}
+
+	double* arr = new double[m * n];
+
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << "Enter " << i << " " << j << " value : ";
+			cin >> c;
+			*(arr + i * n + j) = c;
+		}
+	}
+
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+
+			cout << *(arr + i * n + j)
+				<< " ";
+		}
+		cout << endl;
+	}
+
+	delete[] arr;
+	arr = nullptr;
+}
