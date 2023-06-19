@@ -18,15 +18,15 @@ The **Academic-IT** repository is designed to assist MSc IT students at DAIICT i
 
 The repository covers a diverse range of subjects typically included in the MSc IT curriculum at DAIICT. The subjects available in this repository include, but are not limited to:
 
-- Data Structures and Algorithms
+- C Language
 - Database Management Systems
+- Object Oriented Programming
+- Data Structures and Algorithms
 - Computer Networks
 - Operating Systems
 - Software Engineering
-- Machine Learning
-- Artificial Intelligence
 - Web Development
-- Information Security
+- Discrete Maths
 - and more...
 
 Each subject directory contains relevant study materials, including lecture notes, slides, reference materials, and links to additional resources such as video lectures and online tutorials.
